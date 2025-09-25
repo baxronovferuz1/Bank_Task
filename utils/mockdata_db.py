@@ -42,3 +42,11 @@ cur.execute('''CREATE TABLE IF NOT EXISTS Transactions (
     type TEXT,
     FOREIGN KEY(account_id) REFERENCES Accounts(id)
 )''')
+
+# Mock data: 100ming mijoz
+num_clients = 100000
+clients = []
+for i in range(1, num_clients + 1):
+    clients.append((i, fake.name(), fake.date_of_birth(minimum_age=18, maximum_age=80), random.choice(['Toshkent', 'Jizzax', 'Samarqand', 'Buxoro', 'Xorazm', 'Andijon', 'Sirdaryo'])))
+
+pd.DataFrame(clients, columns=['id', 'name', 'birth_date', 'region']).to_sql('Clients', conn, if_exists='replace', index=False)

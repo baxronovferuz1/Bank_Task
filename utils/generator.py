@@ -1,4 +1,8 @@
 import ollama
+import os
+
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://host.docker.internal:11434")
+
 
 def generate_sql(prompt):
     db_schema = """

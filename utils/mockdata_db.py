@@ -56,7 +56,7 @@ pd.DataFrame(accounts, columns=['id', 'client_id', 'balance', 'open_date']).to_s
 num_transactions = 10000
 transactions = []
 for i in range(1, num_transactions + 1):
-    date = fake.date_between(start_date='-1y', end_date='today')
+    date = fake.date_between(start_date='-4y', end_date='today')
     transactions.append((i, random.randint(1, num_accounts), random.uniform(-5000, 5000), date, random.choice(['deposit', 'withdraw', 'transfer'])))
 
 pd.DataFrame(transactions, columns=['id', 'account_id', 'amount', 'date', 'type']).to_sql('Transactions', conn, if_exists='replace', index=False)

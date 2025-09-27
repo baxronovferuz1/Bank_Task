@@ -6,13 +6,6 @@ from datetime import datetime,timedelta
 
 fake=Faker()
 
-import sqlite3
-import pandas as pd
-from faker import Faker
-import random
-from datetime import datetime, timedelta
-
-fake = Faker()
 
 # Data basega  ulanish
 conn = sqlite3.connect('task.db')
@@ -44,7 +37,7 @@ cur.execute('''CREATE TABLE IF NOT EXISTS Transactions (
 )''')
 
 
-num_clients = 100000
+num_clients = 1000
 clients = []
 for i in range(1, num_clients + 1):
     clients.append((i, fake.name(), fake.date_of_birth(minimum_age=18, maximum_age=80), random.choice(['Toshkent', 'Jizzax', 'Samarqand', 'Buxoro', 'Xorazm', 'Andijon', 'Sirdaryo'])))
@@ -52,7 +45,7 @@ for i in range(1, num_clients + 1):
 pd.DataFrame(clients, columns=['id', 'name', 'birth_date', 'region']).to_sql('Clients', conn, if_exists='replace', index=False)
 
 
-num_accounts = 500000
+num_accounts = 5000
 accounts = []
 for i in range(1, num_accounts + 1):
     accounts.append((i, random.randint(1, num_clients), random.uniform(1000, 100000), fake.date_between(start_date='-5y', end_date='today')))
@@ -60,7 +53,7 @@ for i in range(1, num_accounts + 1):
 pd.DataFrame(accounts, columns=['id', 'client_id', 'balance', 'open_date']).to_sql('Accounts', conn, if_exists='replace', index=False)
 
 
-num_transactions = 1000000
+num_transactions = 10000
 transactions = []
 for i in range(1, num_transactions + 1):
     date = fake.date_between(start_date='-1y', end_date='today')

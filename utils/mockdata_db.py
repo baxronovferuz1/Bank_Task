@@ -36,7 +36,7 @@ cur.execute('''CREATE TABLE IF NOT EXISTS Transactions (
     FOREIGN KEY(account_id) REFERENCES Accounts(id)
 )''')
 
-
+#kichikroq qiymatlardan foydalandim
 num_clients = 1000
 clients = []
 for i in range(1, num_clients + 1):

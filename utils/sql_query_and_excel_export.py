@@ -33,7 +33,7 @@ def export_to_excel(df, filename='result.xlsx'):
     wb.save(filename)
     print(f"Excel saqlandi: {filename}")
 
-# Test
+
 if __name__ == "__main__":
     sql = "SELECT region, SUM(balance) FROM Clients JOIN Accounts ON Clients.id = Accounts.client_id GROUP BY region"
     df = sql_query(sql)

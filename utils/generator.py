@@ -4,6 +4,7 @@ import os
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://host.docker.internal:11434")
 
 
+
 def generate_sql(prompt):
     db_schema = """
     Tablitsalar:
@@ -40,7 +41,16 @@ def generate_sql(prompt):
     Agar savol noto'g'ri bo'lsa, 'Invalid query' deb yoz.
     """
     response = ollama.chat(model='llama3', messages=[{'role': 'user', 'content': full_prompt}])
-    return response['message']['content'].strip()
+    raw=response['message']['content'].strip()
+
+    if "SELECT" in raw.upper():
+        sql_start = raw.upper().find("SELECT")
+        sql_end = raw.find(";", sql_start)
+        if sql_end == -1:
+            sql_end = len(raw)
+        return raw[sql_start:sql_end + 1].strip()
+    else:
+        return "Invalid query"
 
 
 if __name__ == "__main__":

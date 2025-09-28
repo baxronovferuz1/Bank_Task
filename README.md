@@ -69,7 +69,7 @@ Javob sifatida sizga mos **SQL so‘rovi** qaytariladi.
 **Savol:**
 
 ```
-2024 yil iyun oyida Toshkent viloyati bo‘yicha jami tranzaksiyalar summasini ko‘rsat
+2025 yil iyun oyida Toshkent viloyati bo‘yicha jami tranzaksiyalar summasini ko‘rsat
 ```
 
 **Kutilgan natija (misol):**

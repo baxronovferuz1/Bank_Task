@@ -1,5 +1,5 @@
 # Bank_Task  
-🧑‍💻 **Data Analyst Assistant**
+**Data Analyst Assistant**
 
 AI yordamida foydalanuvchi savollarini SQL so‘roviga aylantiruvchi yordamchi dastur.  
 Streamlit web-interfeysi orqali foydalanuvchi savol kiritadi, dastur esa uni **Ollama** (`llama3` modeli) orqali SQL so‘rovga aylantirib beradi.
